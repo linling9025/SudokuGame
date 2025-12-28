@@ -8,37 +8,37 @@
 import SwiftUI
 
 extension Color {
-    // 浅米色背景（beige）
-    static let lightBeige = Color(red: 0.96, green: 0.95, blue: 0.93)
-    
-    // 浅蓝色背景（light blue）
-    static let lightBlue = Color(red: 0.90, green: 0.95, blue: 1.0)
-    
-    // 浅灰色背景（light gray）
-    static let lightGray = Color(red: 0.95, green: 0.95, blue: 0.95)
-    
-    // 柔和的蓝色按钮
-    static let softBlue = Color(red: 0.4, green: 0.6, blue: 0.9)
-    
-    // 柔和的黄色按钮
-    static let softYellow = Color(red: 1.0, green: 0.85, blue: 0.4)
-    
-    // 柔和的绿色按钮
-    static let softGreen = Color(red: 0.5, green: 0.8, blue: 0.6)
-    
-    // 柔和的橙色按钮
-    static let softOrange = Color(red: 1.0, green: 0.7, blue: 0.4)
-    
-    // 柔和的紫色按钮
-    static let softPurple = Color(red: 0.7, green: 0.5, blue: 0.9)
-    
-    // 柔和的红色（用于错误提示）
-    static let softRed = Color(red: 1.0, green: 0.6, blue: 0.6)
-    
-    // 柔和的选中颜色
-    static let softSelected = Color(red: 0.7, green: 0.8, blue: 1.0)
-    
-    // 柔和高亮颜色
-    static let softHighlight = Color(red: 0.9, green: 0.95, blue: 1.0)
+    // 简笔画风格 - 温暖的纸张背景
+    static let lightBeige = Color(red: 0.98, green: 0.96, blue: 0.92)
+
+    // 简笔画风格 - 浅蓝背景
+    static let lightBlue = Color(red: 0.88, green: 0.94, blue: 1.0)
+
+    // 简笔画风格 - 浅灰背景
+    static let lightGray = Color(red: 0.93, green: 0.93, blue: 0.93)
+
+    // 简笔画风格 - 明亮的蓝色（数字按钮）
+    static let softBlue = Color(red: 0.35, green: 0.58, blue: 0.95)
+
+    // 简笔画风格 - 阳光黄色
+    static let softYellow = Color(red: 1.0, green: 0.82, blue: 0.3)
+
+    // 简笔画风格 - 清新绿色
+    static let softGreen = Color(red: 0.4, green: 0.78, blue: 0.55)
+
+    // 简笔画风格 - 活力橙色
+    static let softOrange = Color(red: 1.0, green: 0.65, blue: 0.35)
+
+    // 简笔画风格 - 浪漫紫色
+    static let softPurple = Color(red: 0.65, green: 0.45, blue: 0.88)
+
+    // 简笔画风格 - 柔和红色（错误提示）
+    static let softRed = Color(red: 1.0, green: 0.55, blue: 0.55)
+
+    // 简笔画风格 - 选中高亮
+    static let softSelected = Color(red: 0.68, green: 0.78, blue: 1.0)
+
+    // 简笔画风格 - 淡化高亮
+    static let softHighlight = Color(red: 0.88, green: 0.94, blue: 1.0)
 }
 

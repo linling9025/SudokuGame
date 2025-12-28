@@ -39,7 +39,7 @@ struct WelcomeView: View {
                         }
 
                         Text("Choose your difficulty level")
-                            .font(.system(size: geometry.size.width * 0.05, weight: .regular))
+                            .font(.custom("Patrick Hand", size: geometry.size.width * 0.05))
                             .foregroundColor(.black.opacity(0.7))
                             .minimumScaleFactor(0.8)
                     }
@@ -50,7 +50,7 @@ struct WelcomeView: View {
                             Button(action: { onStartGame(difficulty) }) {
                                 HStack(spacing: geometry.size.width * 0.04) {
                                     Text(difficulty.displayName.uppercased())
-                                        .font(.system(size: geometry.size.width * 0.05, weight: .semibold, design: .rounded))
+                                        .font(.custom("Patrick Hand", size: geometry.size.width * 0.06))
                                         .foregroundColor(.black)
 
                                     Spacer()
@@ -63,11 +63,12 @@ struct WelcomeView: View {
                                 .padding(.vertical, geometry.size.height * 0.025)
                                 .frame(maxWidth: .infinity)
                                 .background(cardColorForDifficulty(difficulty))
-                                .cornerRadius(geometry.size.width * 0.04)
+                                .cornerRadius(geometry.size.width * 0.05)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: geometry.size.width * 0.04)
-                                        .stroke(Color.black.opacity(0.1), lineWidth: 1)
+                                    RoundedRectangle(cornerRadius: geometry.size.width * 0.05)
+                                        .stroke(Color.black.opacity(0.25), lineWidth: 2.5)
                                 )
+                                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 3)
                             }
                         }
                     }

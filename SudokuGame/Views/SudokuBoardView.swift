@@ -44,13 +44,13 @@ struct SudokuBoardView: View {
                     }
                 }
                 
-                // 3x3 box borders - 更粗的边框
+                // 3x3 box borders - 手绘风格粗边框
                 VStack(spacing: 0) {
                     ForEach(0..<boxSize, id: \.self) { boxRow in
                         HStack(spacing: 0) {
                             ForEach(0..<boxSize, id: \.self) { boxCol in
                                 Rectangle()
-                                    .stroke(Color.black.opacity(0.3), lineWidth: 3)
+                                    .stroke(Color.black.opacity(0.4), lineWidth: 3.5)
                                     .frame(
                                         width: cellSize * CGFloat(boxSize),
                                         height: cellSize * CGFloat(boxSize)

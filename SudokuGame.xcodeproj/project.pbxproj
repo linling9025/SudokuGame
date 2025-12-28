@@ -256,6 +256,7 @@
 				DEVELOPMENT_TEAM = 47UFT96W5P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Sudoku;
 				INFOPLIST_KEY_UIAppFonts = (
 					"PatrickHand-Regular.ttf",
 				);
@@ -291,6 +292,7 @@
 				DEVELOPMENT_TEAM = 47UFT96W5P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Sudoku;
 				INFOPLIST_KEY_UIAppFonts = (
 					"PatrickHand-Regular.ttf",
 				);

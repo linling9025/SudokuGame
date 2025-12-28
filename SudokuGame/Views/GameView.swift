@@ -48,8 +48,7 @@ struct GameView: View {
 
                                 if let difficulty = viewModel.difficulty {
                                     Text("\(difficulty.displayName.uppercased()) LEVEL")
-                                        .font(.custom("Aeonik Mono", size: subtitleFontSize))
-                                        .fontWeight(.medium)
+                                        .font(.custom("Patrick Hand", size: subtitleFontSize * 1.2))
                                         .foregroundColor(.black.opacity(0.5))
                                         .tracking(1)
                                 }
@@ -71,13 +70,17 @@ struct GameView: View {
                             ProgressView()
                                 .scaleEffect(1.5)
                             Text("Generating puzzle...")
-                                .font(.system(size: screenWidth * 0.04, weight: .medium))
+                                .font(.custom("Patrick Hand", size: screenWidth * 0.045))
                                 .foregroundColor(.black.opacity(0.6))
                         }
                         .frame(width: screenWidth * 0.75, height: screenWidth * 0.75)
                         .background(Color.white)
-                        .cornerRadius(screenWidth * 0.05)
-                        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 4)
+                        .cornerRadius(screenWidth * 0.06)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: screenWidth * 0.06)
+                                .stroke(Color.black.opacity(0.2), lineWidth: 2.5)
+                        )
+                        .shadow(color: Color.black.opacity(0.12), radius: 6, x: 3, y: 4)
                     } else {
                         ZStack {
                             // Sudoku Board - 卡片式设计
@@ -91,8 +94,12 @@ struct GameView: View {
                             )
                             .padding(screenWidth * 0.05)
                             .background(Color.white)
-                            .cornerRadius(screenWidth * 0.05)
-                            .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 4)
+                            .cornerRadius(screenWidth * 0.06)
+                            .shadow(color: Color.black.opacity(0.12), radius: 6, x: 3, y: 4)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: screenWidth * 0.06)
+                                    .stroke(Color.black.opacity(0.2), lineWidth: 2.5)
+                            )
                             .padding(.horizontal, horizontalPadding)
                         
                             // Solved overlay
@@ -102,7 +109,7 @@ struct GameView: View {
                                         .font(.system(size: screenWidth * 0.16))
 
                                     Text("SOLVED!")
-                                        .font(.system(size: screenWidth * 0.09, weight: .bold, design: .rounded))
+                                        .font(.custom("Patrick Hand", size: screenWidth * 0.1))
                                         .foregroundColor(.black)
                                         .tracking(2)
 
@@ -112,17 +119,27 @@ struct GameView: View {
                                         }
                                     }) {
                                         Text("NEW PUZZLE")
-                                            .font(.system(size: screenWidth * 0.04, weight: .semibold, design: .rounded))
+                                            .font(.custom("Patrick Hand", size: screenWidth * 0.045))
                                             .foregroundColor(.white)
                                             .padding(.horizontal, screenWidth * 0.08)
                                             .padding(.vertical, screenHeight * 0.018)
                                             .background(Color.softGreen)
-                                            .cornerRadius(screenWidth * 0.03)
+                                            .cornerRadius(screenWidth * 0.04)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: screenWidth * 0.04)
+                                                    .stroke(Color.black.opacity(0.25), lineWidth: 2.5)
+                                            )
+                                            .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 3)
                                     }
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .background(Color.softGreen.opacity(0.95))
-                                .cornerRadius(screenWidth * 0.05)
+                                .cornerRadius(screenWidth * 0.06)
+                                .shadow(color: Color.black.opacity(0.15), radius: 3, x: 2, y: 3)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: screenWidth * 0.06)
+                                        .stroke(Color.black.opacity(0.25), lineWidth: 2.5)
+                                )
                                 .padding(.horizontal, horizontalPadding)
                             }
                         }

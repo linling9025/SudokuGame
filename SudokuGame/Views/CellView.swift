@@ -20,11 +20,11 @@ struct CellView: View {
             ZStack {
                 Rectangle()
                     .fill(backgroundColor)
-                    .border(Color.black.opacity(0.15), width: 0.5)
+                    .border(Color.black.opacity(0.2), width: 1)
                 
                 if let value = cell.value {
                     Text("\(value)")
-                        .font(.system(size: 24, weight: cell.isGiven ? .bold : .semibold, design: .rounded))
+                        .font(.custom("Patrick Hand", size: 28))
                         .foregroundColor(cell.isGiven ? .black : Color.softBlue)
                 } else if !cell.notes.isEmpty {
                     NotesGridView(notes: cell.notes)
@@ -59,7 +59,7 @@ struct NotesGridView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 3), spacing: 0) {
                 ForEach(1...9, id: \.self) { num in
                     Text(notes.contains(num) ? "\(num)" : "")
-                        .font(.system(size: fontSize, weight: .medium, design: .rounded))
+                        .font(.custom("Patrick Hand", size: fontSize * 1.2))
                         .foregroundColor(.black.opacity(0.5))
                         .frame(width: cellSize, height: cellSize)
                         .minimumScaleFactor(0.3)
