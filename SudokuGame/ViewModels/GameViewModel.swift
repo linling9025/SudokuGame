@@ -12,6 +12,7 @@ class GameViewModel: ObservableObject {
     @Published var board: Board = []
     @Published var solution: [[Int]] = []
     @Published var selectedCell: Position?
+    @Published var selectedValue: Int?
     @Published var isNoteMode = false
     @Published var isSolved = false
     @Published var errors: Set<Position> = []
@@ -50,19 +51,25 @@ class GameViewModel: ObservableObject {
     }
     
     func selectCell(row: Int, col: Int) {
-        if !board[row][col].isGiven {
-            selectedCell = Position(row: row, col: col)
-        } else {
+        let position = Position(row: row, col: col)
+        let cellValue = board[row][col].value
+
+        // 如果点击的是同一个单元格，取消选择
+        if selectedCell == position {
             selectedCell = nil
+            selectedValue = nil
+        } else {
+            selectedCell = position
+            selectedValue = cellValue
         }
     }
     
     func inputNumber(_ num: Int) {
         guard let selected = selectedCell else { return }
         guard !board[selected.row][selected.col].isGiven else { return }
-        
+
         var newBoard = board
-        
+
         if isNoteMode {
             if newBoard[selected.row][selected.col].notes.contains(num) {
                 newBoard[selected.row][selected.col].notes.remove(num)
@@ -70,26 +77,29 @@ class GameViewModel: ObservableObject {
                 newBoard[selected.row][selected.col].notes.insert(num)
             }
             newBoard[selected.row][selected.col].value = nil
+            selectedValue = nil
         } else {
             newBoard[selected.row][selected.col].value = num
             newBoard[selected.row][selected.col].notes = []
+            selectedValue = num
         }
-        
+
         board = newBoard
         errors = sudokuService.checkBoard(board)
-        
+
         checkIfSolved()
     }
     
     func erase() {
         guard let selected = selectedCell else { return }
         guard !board[selected.row][selected.col].isGiven else { return }
-        
+
         var newBoard = board
         newBoard[selected.row][selected.col].value = nil
         newBoard[selected.row][selected.col].notes = []
-        
+
         board = newBoard
+        selectedValue = nil
         errors = sudokuService.checkBoard(board)
         isSolved = false
     }

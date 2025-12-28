@@ -87,6 +87,7 @@ struct GameView: View {
                             SudokuBoardView(
                                 board: viewModel.board,
                                 selectedCell: viewModel.selectedCell,
+                                selectedValue: viewModel.selectedValue,
                                 errors: viewModel.errors,
                                 onCellTap: { row, col in
                                     viewModel.selectCell(row: row, col: col)

@@ -10,6 +10,7 @@ import SwiftUI
 struct SudokuBoardView: View {
     let board: Board
     let selectedCell: Position?
+    let selectedValue: Int?
     let errors: Set<Position>
     let onCellTap: (Int, Int) -> Void
     
@@ -35,6 +36,7 @@ struct SudokuBoardView: View {
                                     position: Position(row: row, col: col),
                                     isSelected: isSelected(row: row, col: col),
                                     isHighlighted: isHighlighted(row: row, col: col),
+                                    isValueHighlighted: isValueHighlighted(row: row, col: col),
                                     hasError: errors.contains(Position(row: row, col: col)),
                                     onTap: { onCellTap(row, col) }
                                 )
@@ -72,7 +74,34 @@ struct SudokuBoardView: View {
     
     private func isHighlighted(row: Int, col: Int) -> Bool {
         guard let selected = selectedCell else { return false }
-        return selected.row == row || selected.col == col ||
-            (selected.row / boxSize == row / boxSize && selected.col / boxSize == col / boxSize)
+        return selected.row == row || selected.col == col
+    }
+
+    private func isValueHighlighted(row: Int, col: Int) -> Bool {
+        // 如果选中的单元格有值，高亮所有相同值所在单元格的行和列
+        guard let value = selectedValue,
+              let cellValue = board[row][col].value,
+              cellValue == value else {
+            return false
+        }
+
+        // 找到所有具有相同值的单元格位置
+        var positions: [Position] = []
+        for r in 0..<gridSize {
+            for c in 0..<gridSize {
+                if board[r][c].value == value {
+                    positions.append(Position(row: r, col: c))
+                }
+            }
+        }
+
+        // 检查当前单元格是否在任何相同值单元格的行或列上
+        for pos in positions {
+            if row == pos.row || col == pos.col {
+                return true
+            }
+        }
+
+        return false
     }
 }

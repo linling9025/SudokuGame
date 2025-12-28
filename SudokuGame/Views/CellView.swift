@@ -12,6 +12,7 @@ struct CellView: View {
     let position: Position
     let isSelected: Bool
     let isHighlighted: Bool
+    let isValueHighlighted: Bool
     let hasError: Bool
     let onTap: () -> Void
     
@@ -40,6 +41,8 @@ struct CellView: View {
             return Color.softRed.opacity(0.4)
         } else if isSelected {
             return Color.softSelected
+        } else if isValueHighlighted {
+            return Color.softYellow.opacity(0.3)
         } else if isHighlighted {
             return Color.softHighlight
         } else {
